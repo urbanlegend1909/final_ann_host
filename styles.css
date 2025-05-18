@@ -1,0 +1,678 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffebee;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+header {
+    margin: 60px 0 40px;
+    position: relative;
+}
+
+.main-title {
+    font-size: 4rem;
+    color: #e91e63;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 5;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: #c2185b;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+
+/* Message section */
+
+.message-section {
+    margin: 40px 0;
+}
+
+.message-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.message-card h2 {
+    color: #e91e63;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.message-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+
+/* Hearts animation */
+
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* Balloons */
+
+.balloons-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+    transform-origin: bottom center;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.5), inset -5px -5px 10px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.balloon:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+}
+
+.balloon:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 50px;
+    background: rgba(200, 200, 200, 0.7);
+    bottom: -50px;
+    left: 30px;
+}
+
+.balloon:hover {
+    transform: scale(1.2);
+    box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.7), inset -5px -5px 10px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.balloon.popped {
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s;
+}
+
+.balloon1 {
+    background: linear-gradient(#ff4081, #ec407a);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.balloon2 {
+    background: linear-gradient(#9c27b0, #7b1fa2);
+    top: 20%;
+    left: 30%;
+    animation-delay: 1s;
+}
+
+.balloon3 {
+    background: linear-gradient(#3f51b5, #303f9f);
+    top: 15%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.balloon4 {
+    background: linear-gradient(#42a5f5, #1e88e5);
+    top: 25%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.balloon5 {
+    background: linear-gradient(#26c6da, #00acc1);
+    top: 5%;
+    left: 90%;
+    animation-delay: 4s;
+}
+
+.balloon6 {
+    background: linear-gradient(#66bb6a, #43a047);
+    top: 35%;
+    left: 20%;
+    animation-delay: 5s;
+}
+
+.balloon7 {
+    background: linear-gradient(#ffee58, #fdd835);
+    top: 45%;
+    left: 40%;
+    animation-delay: 6s;
+}
+
+.balloon8 {
+    background: linear-gradient(#ffa726, #fb8c00);
+    top: 40%;
+    left: 60%;
+    animation-delay: 7s;
+}
+
+.balloon9 {
+    background: linear-gradient(#ef5350, #e53935);
+    top: 50%;
+    left: 80%;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-50px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-100px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-50px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+
+/* Gift button */
+
+.gift-button {
+    background: linear-gradient(145deg, #ff4081, #e91e63);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.5rem;
+    padding: 15px 40px;
+    cursor: pointer;
+    margin: 40px auto;
+    display: block;
+    box-shadow: 0 6px 12px rgba(233, 30, 99, 0.3);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.gift-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(233, 30, 99, 0.4);
+}
+
+.gift-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(233, 30, 99, 0.2);
+}
+
+.gift-button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+}
+
+.gift-button:hover::after {
+    transform: translateY(0);
+}
+
+
+/* Memory section - UPDATED FOR PHONE IMAGES */
+
+.memory-section {
+    margin: 40px 0;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.memory-section h2 {
+    color: #e91e63;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.memory-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.memory-card {
+    flex: 0 0 280px;
+    height: 400px;
+    /* Increased height to accommodate phone-sized photos */
+    background: white;
+    border-radius: 12px;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.memory-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.memory-placeholder {
+    width: 100%;
+    height: 320px;
+    /* Taller to accommodate phone aspect ratio */
+    background: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9e9e9e;
+    font-size: 3rem;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.memory-placeholder.video-placeholder {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-placeholder video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.memory-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Changed from cover to contain to show full image */
+    border-radius: 8px;
+}
+
+.memory-title {
+    font-weight: bold;
+    color: #e91e63;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    /* Slightly smaller to fit longer titles */
+    text-align: center;
+    max-width: 250px;
+    /* Limit width for better readability */
+    overflow-wrap: break-word;
+    /* Allow long words to break */
+}
+
+.memory-date {
+    font-size: 0.9rem;
+    color: #9e9e9e;
+    margin-bottom: 10px;
+}
+
+
+/* Confetti */
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #ff4081;
+    animation: confetti-fall 10s linear infinite;
+    z-index: 5;
+    pointer-events: none;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* Heart animation */
+
+@keyframes heart-float {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    font-size: 1.5rem;
+    color: #ff4081;
+    animation: heart-float 6s ease-in infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+/* Pulse animation for elements */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    color: #e91e63;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* Gift Page Styles */
+
+.gift-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffebee, #fce4ec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.gift-page.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.gift-container {
+    max-width: 90%;
+    text-align: center;
+}
+
+.gift-box {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 50px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg);
+    transition: transform 0.6s;
+}
+
+.gift-box:hover {
+    transform: rotateX(15deg) scale(1.05);
+}
+
+.gift-base {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #e91e63, #d81b60);
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gift-lid {
+    position: absolute;
+    width: 110%;
+    height: 30px;
+    background: linear-gradient(145deg, #f06292, #ec407a);
+    border-radius: 5px;
+    top: -30px;
+    left: -5%;
+    transform-origin: bottom;
+    transform: rotateX(0);
+    transition: transform 1s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gift-ribbon-vertical {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background: #ff80ab;
+    left: calc(50% - 15px);
+    z-index: 1;
+}
+
+.gift-ribbon-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: #ff80ab;
+    top: calc(50% - 15px);
+    z-index: 1;
+}
+
+.opened .gift-lid {
+    transform: rotateX(-110deg);
+}
+
+.opened .gift-base {
+    animation: gift-jump 0.5s 0.5s forwards;
+}
+
+@keyframes gift-jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.gift-message {
+    margin-top: 30px;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s;
+    margin: 0 auto;
+}
+
+.gift-message.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.gift-message h2 {
+    color: #e91e63;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.message-content {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.special-message {
+    margin: 30px 0;
+    padding: 20px;
+    border: 2px dashed #e91e63;
+    border-radius: 10px;
+    color: #c2185b;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.special-message:hover {
+    background: rgba(233, 30, 99, 0.1);
+    transform: scale(1.05);
+}
+
+.return-button {
+    background: linear-gradient(145deg, #880e4f, #ad1457);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(136, 14, 79, 0.3);
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.return-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(136, 14, 79, 0.4);
+}
+
+.return-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(136, 14, 79, 0.2);
+}
+
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    .gift-button {
+        font-size: 1.3rem;
+        padding: 12px 30px;
+    }
+    .memory-card {
+        flex: 0 0 260px;
+        height: 380px;
+        /* Adjusted height for medium screens */
+    }
+    .memory-placeholder {
+        width: 100%;
+        height: 300px;
+        /* Adjusted height for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    .message-card p {
+        font-size: 1rem;
+    }
+    .memory-card {
+        flex: 0 0 220px;
+        height: 360px;
+        /* Adjusted height for small screens */
+    }
+    .memory-placeholder {
+        width: 100%;
+        height: 280px;
+        /* Adjusted height for small screens */
+    }
+}
